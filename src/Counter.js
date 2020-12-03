@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from 'react-redux';
 import {decrease, increase, reset, modalOpen} from './actions';
 
-function Counter({count, increase, decrease, reset}) {
+function Counter({count, increase, decrease, reset, modalOpen}) {
 
   return (
     <div className="container">
@@ -14,7 +14,7 @@ function Counter({count, increase, decrease, reset}) {
           reset()
           modalOpen(
             "manik", 
-            "kansmnamnamnsamsanmnasmnmasnma mnasmnamnma mansmnamna mnamnsmsn nawmnsmn"
+            "Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit. Aperiam Sed Quis Totam Saepe Mollitia Tempore, Modi Eveniet Repellat! Odio, Non!"
             );
           }}>Reset</button>
         <button type="button" className="btn" onClick={increase}>Increase</button>
@@ -27,9 +27,6 @@ function mapStateToProps({countState: {count}}) {
   return {count: count};
 }
 
-const mapDispatchToProps = {
-  increase, decrease, reset, modalOpen,
-}
 // function mapDispatchToProps(dispatch, ownProps) {
 //   return {
 //     increase: () => dispatch(increase()),
@@ -41,4 +38,9 @@ const mapDispatchToProps = {
 //   }
 // }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(mapStateToProps, {
+  increase, 
+  decrease, 
+  reset, 
+  modalOpen
+})(Counter);
